@@ -27,4 +27,4 @@ function filterTable(data: string[][], search = "") {
 
 export type FilterTableType = typeof filterTable;
 
-Comlink.expose(filterTable);
+Comlink.expose({ filterTable });

@@ -1,10 +1,10 @@
 import { For } from "solid-js/dom";
-import { createSignal, createState, createEffect } from "solid-js";
+import { createSignal, createState, createEffect, unwrap } from "solid-js";
 import * as Comlink from "comlink";
 import { FilterTableType } from "../workers/table";
 
 type PropsType = {
-	data: any[];
+	data: string[][];
 };
 
 export const Table = (props: PropsType) => {
@@ -19,18 +19,19 @@ export const Table = (props: PropsType) => {
 		data: [],
 	});
 
-	const tableComputation = Comlink.wrap<FilterTableType>(
+	const tableComputation = Comlink.wrap<{ filterTable: FilterTableType }>(
 		new Worker("../workers/table.ts"),
 	);
-
-	console.log(tableComputation);
 
 	// Compute the pagination
 	createEffect(async () => {
 		// Compute the slice of data to show based on filters
 		const start = pagination.page * pagination.perPage;
 
-		const filtered = await tableComputation(props.data, pagination.search);
+		const filtered = await tableComputation.filterTable(
+			unwrap(props.data),
+			unwrap(pagination.search),
+		);
 
 		setPagination((state) => {
 			state.data = filtered.slice(start, start + pagination.perPage);
