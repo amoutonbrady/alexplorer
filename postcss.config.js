@@ -1,6 +1,6 @@
 // only needed if you want to purge
 const purgecss = require("@fullhuman/postcss-purgecss")({
-	content: ["./src/**/*.js", "./src/**/*.html"],
+	content: ["./src/**/*.tsx", "./src/**/*.html"],
 	defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 });
 
