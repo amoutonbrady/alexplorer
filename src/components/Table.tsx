@@ -30,6 +30,7 @@ export const Table = (props: PropsType) => {
 
 		const filtered = await tableComputation.filterTable(
 			unwrap(props.data),
+			// @ts-ignore
 			unwrap(pagination.search),
 		);
 

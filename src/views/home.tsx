@@ -23,7 +23,7 @@ export const Home = () => {
 		const body = new FormData();
 		body.append("gtfs", file());
 
-		const res = await fetch("http://localhost:3000/upload", {
+		const res = await fetch("https://alexplorer-api.now.sh/upload", {
 			method: "POST",
 			headers: {
 				ContentType: "multipart/form-data",
