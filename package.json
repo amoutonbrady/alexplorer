@@ -1,25 +1,26 @@
 {
-  "name": "alexplorer",
-  "version": "1.0.0",
-  "license": "MIT",
-  "scripts": {
-    "dev": "parcel src/index.html"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.9.0",
-    "@babel/preset-typescript": "^7.9.0",
-    "@fullhuman/postcss-purgecss": "^2.1.0",
-    "@types/papaparse": "^5.0.3",
-    "babel-plugin-jsx-dom-expressions": "^0.17.0-beta.1",
-    "babel-preset-solid": "^0.16.8",
-    "parcel": "^2.0.0-nightly.157",
-    "prettier": "^2.0.1",
-    "tailwindcss": "^1.2.0"
-  },
-  "dependencies": {
-    "@babel/core": "^7.9.0",
-    "comlink": "^4.2.0",
-    "papaparse": "^5.1.1",
-    "solid-js": "^0.17.0-beta.0"
-  }
+	"name": "alexplorer",
+	"version": "1.0.0",
+	"license": "MIT",
+	"scripts": {
+		"dev": "parcel src/index.html",
+		"build": "npm rebuild && parcel build src/index.html"
+	},
+	"devDependencies": {
+		"@babel/preset-env": "^7.9.0",
+		"@babel/preset-typescript": "^7.9.0",
+		"@fullhuman/postcss-purgecss": "^2.1.0",
+		"@types/papaparse": "^5.0.3",
+		"babel-plugin-jsx-dom-expressions": "^0.17.0-beta.1",
+		"babel-preset-solid": "^0.16.8",
+		"parcel": "^2.0.0-nightly.157",
+		"prettier": "^2.0.1",
+		"tailwindcss": "^1.2.0"
+	},
+	"dependencies": {
+		"@babel/core": "^7.9.0",
+		"comlink": "^4.2.0",
+		"papaparse": "^5.1.1",
+		"solid-js": "^0.17.0-beta.0"
+	}
 }
