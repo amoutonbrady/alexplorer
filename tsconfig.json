@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "module": "ESNext",
+    "jsx": "preserve",
+    "types": ["babel-plugin-jsx-dom-expressions"]
+  }
+}
