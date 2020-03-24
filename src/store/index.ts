@@ -4,17 +4,21 @@ import {
 	useContext,
 	createSignal,
 	createEffect,
-	createDependentEffect,
 	onCleanup,
 } from "solid-js";
-import { Gtfs } from "../typings/gtfs";
 import { SetStateFunction, Wrapped } from "solid-js/types/state";
+import * as Comlink from "comlink";
+import { Gtfs } from "../typings/gtfs";
+import { FilterTableType } from "../workers/table";
 
 type StoreType = {
 	gtfs: Wrapped<Gtfs>;
 	setGtfs: SetStateFunction<Gtfs>;
 	route: () => string;
 	isReady: () => boolean;
+	tableComputation: Comlink.Remote<{
+		filterTable: (data: string[][], search?: string) => string[][];
+	}>;
 };
 
 const StoreCtx = createContext<StoreType>(null);
@@ -29,6 +33,9 @@ export const createStore = ({ children }) => {
 		setGtfs,
 		isReady,
 		route,
+		tableComputation: Comlink.wrap<{ filterTable: FilterTableType }>(
+			new Worker("../workers/table.ts"),
+		),
 	};
 
 	window.location.hash = "#/";
@@ -41,7 +48,6 @@ export const createStore = ({ children }) => {
 	window.addEventListener("hashchange", onHashChange);
 
 	createEffect(() => {
-		console.log(gtfs);
 		if (gtfs.stops) {
 			setIsReady(true);
 			window.location.hash = "#/agency";
