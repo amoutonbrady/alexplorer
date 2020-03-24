@@ -1,14 +1,14 @@
 import { render, Show, Switch, Match } from "solid-js/dom";
-import { useStore, createStore } from "./store";
-import { Home } from "./views/home";
-import { Layout } from "./components/Layout";
-import { Stops } from "./views/stops";
-import { Agency } from "./views/agency";
 import { CalendarDates } from "./views/calendar_dates";
+import { useStore, createStore } from "./store";
 import { StopTimes } from "./views/stop_times";
-import { Trips } from "./views/trips";
+import { Layout } from "./components/Layout";
 import { Calendar } from "./views/calendar";
 import { Routes } from "./views/routes";
+import { Agency } from "./views/agency";
+import { Trips } from "./views/trips";
+import { Stops } from "./views/stops";
+import { Home } from "./views/home";
 
 const App = () => {
 	const store = useStore();
