@@ -15,7 +15,7 @@ export const Home = () => {
 		// Reset the errors on submit
 		setError("");
 
-		if (!file() || !validateZipExtension(file())) {
+		if (!file()) {
 			setError("Wrong file extension or empty file. Try again.");
 			return void 0;
 		}
